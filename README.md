@@ -15,3 +15,9 @@ zinit ice lucid wait='0'; zinit light liuzhuoming23/qrcode-plugin-zsh
 ```bash
 git clone https://github.com/liuzhuoming23/qrcode-plugin-zsh.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/qrcode
 ```
+
+### 如果 github 无法访问的话
+
+```bash
+git clone https://gitee.com/catsstreet/qrcode-plugin-zsh ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/qrcode
+```
