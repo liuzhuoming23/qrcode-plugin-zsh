@@ -1,1 +1,1 @@
-alias qrcode="cd `dirname $0` && sh qrcode.sh"
+alias qrcode="cd `dirname $0` && bash qrcode.sh"
