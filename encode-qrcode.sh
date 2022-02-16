@@ -25,7 +25,7 @@ else
                     qr "$1" > "$QRCODE_PATH"
                     echo "$QRCODE_PATH"
                     open "$QRCODE_PATH"
-                else ["`uname`" == "Linux"]; then
+                elif ["`uname`" == "Linux"]; then
                     TMP_DIR="/tmp/"
                     QRCODE_PATH="`echo $TMP_DIR``uuidgen`.png"
                     qr "$1" > "$QRCODE_PATH"
