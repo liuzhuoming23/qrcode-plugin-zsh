@@ -5,10 +5,10 @@ if [ $# == 0 ]; then
 else
     if [ $1 == "encode" ] || [ $1 == "-e" ]; then
         cd `dirname $0`
-        bash ./qrcode-${1}.sh "$2"
+        bash ./qrcode-encode.sh "$2"
     elif [ $1 == "decode" ] || [ $1 == "-d" ]; then
         cd `dirname $0`
-        bash ./qrcode-${1}.sh "$2"
+        bash ./qrcode-decode.sh "$2"
     else
         echo "error: param[$1] is not supported"
     fi
