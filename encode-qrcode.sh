@@ -18,12 +18,18 @@ else
                 echo "qrcode dependent will be installed automatically.\npip install qrcode..."
                 pip install qrcode
                 sleep 1
-                QRCODE_PATH="`echo $TMPDIR``uuidgen`.png"
-                qr "$1" > "$QRCODE_PATH"
-                echo "$QRCODE_PATH"
-                # Darwin=MacOSX
+                # Darwin=MacOSX Linux=Linux
                 if [ "`uname`" == "Darwin" ]; then
+                    TMP_DIR="`echo $TMPDIR`"
+                    QRCODE_PATH="`echo $TMP_DIR``uuidgen`.png"
+                    qr "$1" > "$QRCODE_PATH"
+                    echo "$QRCODE_PATH"
                     open "$QRCODE_PATH"
+                else ["`uname`" == "Linux"]; then
+                    TMP_DIR="/tmp/"
+                    QRCODE_PATH="`echo $TMP_DIR``uuidgen`.png"
+                    qr "$1" > "$QRCODE_PATH"
+                    echo "$QRCODE_PATH"
                 fi
             else
                 echo "error: 'qrcode' dependent not installed, please install qrcode manually.(run 'pip install qrcode')"
