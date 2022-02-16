@@ -20,13 +20,11 @@ else
                 sleep 1
                 # Darwin=MacOSX Linux=Linux
                 if [ "`uname`" == "Darwin" ]; then
-                    QRCODE_PATH="`echo $TMPDIR``uuidgen`.png"
-                    qr "$1" > "$QRCODE_PATH"
+                    qr "$1" > "`echo $TMPDIR``uuidgen`.png"
                     echo "$QRCODE_PATH"
                     open "$QRCODE_PATH"
                 elif ["`uname`" == "Linux"]; then
-                    QRCODE_PATH="/tmp/`uuidgen`.png"
-                    qr "$1" > "$QRCODE_PATH"
+                    qr "$1" > '/tmp/'+"`uuidgen`.png"
                     echo "$QRCODE_PATH"
                 fi
             else
