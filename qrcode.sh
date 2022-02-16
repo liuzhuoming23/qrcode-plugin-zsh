@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PWD="`pwd`"
+PWD_CURRENT=`pwd`
 
 if [ $# == 0 ]; then
     echo "error: param[1] is required"
@@ -13,5 +13,5 @@ else
     else
         echo "error: param[$1] is not supported"
     fi
-    cd $PWD
+    cd $PWD_CURRENT
 fi
