@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PWD=`pwd`
+PWD="`pwd`"
 
 if [ $# == 0 ]; then
     echo "error: param[1] is required"
