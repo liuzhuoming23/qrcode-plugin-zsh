@@ -4,12 +4,16 @@ if [ "$1" == "" ]; then
     echo "error: qrcode encode context is required"
 else
     if command -v qr >/dev/null 2>&1; then
-        QRCODE_PATH="`echo $TMPDIR``uuidgen`.png"
-        qr "$1" > "$QRCODE_PATH"
-        echo "$QRCODE_PATH"
-        # Darwin=MacOSX
+        # Darwin=MacOSX Linux=Linux
         if [ "`uname`" == "Darwin" ]; then
+            QRCODE_PATH="`echo $TMPDIR``uuidgen`.png"
+            qr "$1" > "$QRCODE_PATH"
+            echo "$QRCODE_PATH"
             open "$QRCODE_PATH"
+        elif ["`uname`" == "Linux"]; then
+            QRCODE_PATH="/tmp/`uuidgen`.png"
+            qr "$1" > "$QRCODE_PATH"
+            echo "$QRCODE_PATH"
         fi
     else
         if command -v pip >/dev/null 2>&1; then
@@ -20,11 +24,13 @@ else
                 sleep 1
                 # Darwin=MacOSX Linux=Linux
                 if [ "`uname`" == "Darwin" ]; then
-                    qr "$1" > "`echo $TMPDIR``uuidgen`.png"
+                    QRCODE_PATH="`echo $TMPDIR``uuidgen`.png"
+                    qr "$1" > "$QRCODE_PATH"
                     echo "$QRCODE_PATH"
                     open "$QRCODE_PATH"
                 elif ["`uname`" == "Linux"]; then
-                    qr "$1" > '/tmp/'+"`uuidgen`.png"
+                    QRCODE_PATH="/tmp/`uuidgen`.png"
+                    qr "$1" > "$QRCODE_PATH"
                     echo "$QRCODE_PATH"
                 fi
             else
