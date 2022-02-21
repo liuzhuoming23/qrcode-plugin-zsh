@@ -19,5 +19,5 @@ git clone https://github.com/ming-lz/qrcode-plugin-zsh.git ${ZSH_CUSTOM:=~/.oh-m
 ### 如果 github 无法访问的话
 
 ```bash
-git clone https://gitee.com/catsstreet/qrcode-plugin-zsh ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/qrcode
+git clone https://gitee.com/ming-lz/qrcode-plugin-zsh ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/qrcode
 ```
